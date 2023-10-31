@@ -1,15 +1,16 @@
 
-import numpy as np
-import pandas as pv
-import csv
+import pandas as pd
 
-dataset=pv.read_csv("pg34.csv")
+data = {'Name': ['e', 'a', 'a', 'b', 'c', 'd'],
+        'Age': [1, 2, 1, 3, 3, 4],
+        'Rank': [0, 1, 2, 3, 4, 5]}
 
-x=dataset.iloc[:-1 ,:].values
+index = ['a1', 'b1', 'c1', 'd1', 'e1', 'f1']
 
-print(dataset)
-print(dataset.shape)
-print(dataset.head(5))
-print(dataset.tail())
-print(x)
+df = pd.DataFrame(data, index)
 
+print(df.to_string())
+
+df.reset_index(inplace=True, drop=True)
+
+print(df.to_string())
